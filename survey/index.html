@@ -1,0 +1,416 @@
+<!-- survey/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Industry Benchmark Survey | Collie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #071827;
+      --navy-soft: #0d2538;
+      --card: #ffffff;
+      --text: #102033;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --accent: #a7d8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: radial-gradient(circle at top left, #123653 0%, var(--navy) 42%, #03101b 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 24px;
+      margin-bottom: 42px;
+    }
+
+    .intro h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.02;
+      margin: 0 0 20px;
+      letter-spacing: -0.04em;
+    }
+
+    .intro p {
+      color: rgba(255,255,255,.78);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 14px;
+    }
+
+    .card {
+      background: var(--card);
+      color: var(--text);
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 32px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.25);
+    }
+
+    .progress {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .question {
+      display: none;
+    }
+
+    .question.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.25;
+      margin: 0 0 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    label.option {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    label.option:hover {
+      border-color: #9bbbd4;
+      background: #f8fbfd;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: translateY(1px);
+    }
+
+    textarea,
+    input[type="email"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 800;
+      font-family: Inter, sans-serif;
+      cursor: pointer;
+    }
+
+    .secondary {
+      background: #eef2f6;
+      color: var(--text);
+    }
+
+    .primary {
+      background: var(--navy);
+      color: white;
+      margin-left: auto;
+    }
+
+    .primary:hover {
+      background: var(--navy-soft);
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .thankyou {
+      display: none;
+      text-align: center;
+    }
+
+    .thankyou h2 {
+      font-size: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 32px 16px; }
+      .card { padding: 22px; border-radius: 20px; }
+      .buttons { flex-direction: column; }
+      button { width: 100%; }
+      .primary { margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="brand">Collie</div>
+
+    <section class="intro">
+      <h1>Real Estate Industry Benchmark Survey</h1>
+      <p>
+        This survey is part of an effort to establish a baseline understanding of how commercial real estate professionals currently spend their time and where they believe they create the most value.
+      </p>
+      <p>
+        The survey consists of 5 questions and should take approximately 3 minutes to complete. Findings will be summarized and shared with participants upon completion of the study.
+      </p>
+      <p>
+        Survey responses will be reviewed in aggregate. Email addresses are collected separately only for coffee gift card delivery and follow-up permission.
+      </p>
+    </section>
+
+    <section class="card">
+      <form id="surveyForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+
+        <div class="question active">
+          <div class="progress">Question 1 of 5</div>
+          <h2>Which statement best describes the primary value you bring to your organization?</h2>
+
+          <label class="option"><input type="radio" name="primary_value" value="Producing analysis and supporting decision-making" required>Producing analysis and supporting decision-making</label>
+          <label class="option"><input type="radio" name="primary_value" value="Managing specific workstreams or projects">Managing specific workstreams or projects</label>
+          <label class="option"><input type="radio" name="primary_value" value="Coordinating efforts across teams and stakeholders">Coordinating efforts across teams and stakeholders</label>
+          <label class="option"><input type="radio" name="primary_value" value="Synthesizing information across disciplines to support investment and operational decisions">Synthesizing information across disciplines to support investment and operational decisions</label>
+          <label class="option"><input type="radio" name="primary_value" value="Setting strategic direction and capital allocation priorities">Setting strategic direction and capital allocation priorities</label>
+        </div>
+
+        <div class="question">
+          <div class="progress">Question 2 of 5</div>
+          <h2>What activities consume the largest portion of your time?</h2>
+          <div class="hint">Select up to three areas.</div>
+
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Strategy / business planning">Strategy / business planning</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Leasing">Leasing</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Coordination and communication">Coordination and communication</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Data collection and analysis">Data collection and analysis</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Operational performance">Operational performance</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Process improvement">Process improvement</label>
+        </div>
+
+        <div class="question">
+          <div class="progress">Question 3 of 5</div>
+          <h2>Which areas of your work do you believe deserve more of your attention?</h2>
+          <div class="hint">Select up to three areas.</div>
+
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Strategy / business planning">Strategy / business planning</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Leasing">Leasing</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Coordination and communication">Coordination and communication</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Data collection and analysis">Data collection and analysis</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Operational performance">Operational performance</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Process improvement">Process improvement</label>
+        </div>
+
+        <div class="question">
+          <div class="progress">Question 4 of 5</div>
+          <h2>Do you feel your current tools meaningfully reduce workload and improve decision-making?</h2>
+
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Yes, significantly" required>Yes, significantly</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Somewhat">Somewhat</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Not really">Not really</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="They help individual tasks, but not the overall workflow">They help individual tasks, but not the overall workflow</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="In some ways they create additional complexity">In some ways they create additional complexity</label>
+        </div>
+
+        <div class="question">
+          <div class="progress">Question 5 of 5</div>
+          <h2>If you could improve one aspect of your current workflow, what would it be?</h2>
+          <textarea name="workflow_improvement" placeholder="Share a brief thought..." required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="progress">Final step</div>
+          <h2>Please share your email to receive a coffee gift card.</h2>
+          <p class="contact-note">
+            This is also where I’ll send the summarized findings once the study is complete.
+          </p>
+
+          <input type="email" name="email" placeholder="Email address" required />
+
+          <label class="option" style="margin-top:16px;">
+            <input type="checkbox" name="open_to_follow_up" value="Yes">
+            I would be open to future follow-up conversations related to this research.
+          </label>
+
+          <p class="contact-note">
+            Please press submit below to complete the survey.
+          </p>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="secondary" id="prevBtn" style="display:none;">Back</button>
+          <button type="button" class="primary" id="nextBtn">Next</button>
+          <button type="submit" class="primary" id="submitBtn" style="display:none;">Submit</button>
+        </div>
+      </form>
+
+      <div class="thankyou" id="thankyou">
+        <h2>Thank you.</h2>
+        <p class="contact-note">
+          Your response has been submitted. I appreciate your time and perspective.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const questions = document.querySelectorAll(".question");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const form = document.getElementById("surveyForm");
+    const thankyou = document.getElementById("thankyou");
+
+    let current = 0;
+
+    function showQuestion(index) {
+      questions.forEach((q, i) => q.classList.toggle("active", i === index));
+      prevBtn.style.display = index === 0 ? "none" : "inline-block";
+      nextBtn.style.display = index === questions.length - 1 ? "none" : "inline-block";
+      submitBtn.style.display = index === questions.length - 1 ? "inline-block" : "none";
+    }
+
+    function validateCurrentQuestion() {
+      const active = questions[current];
+      const requiredFields = active.querySelectorAll("[required]");
+
+      for (const field of requiredFields) {
+        if (field.type === "radio") {
+          const group = active.querySelectorAll(`input[name="${field.name}"]`);
+          if (![...group].some(input => input.checked)) {
+            alert("Please select an answer before continuing.");
+            return false;
+          }
+        } else if (!field.value.trim()) {
+          alert("Please complete this field before continuing.");
+          return false;
+        }
+      }
+
+      const checkboxGroups = [
+        "time_consuming_activities[]",
+        "deserves_more_attention[]"
+      ];
+
+      for (const groupName of checkboxGroups) {
+        const boxes = active.querySelectorAll(`input[name="${groupName}"]`);
+        if (boxes.length > 0) {
+          const checked = [...boxes].filter(box => box.checked);
+          if (checked.length === 0) {
+            alert("Please select at least one option.");
+            return false;
+          }
+          if (checked.length > 3) {
+            alert("Please select up to three options.");
+            return false;
+          }
+        }
+      }
+
+      return true;
+    }
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+      box.addEventListener("change", () => {
+        const group = document.querySelectorAll(`input[name="${box.name}"]`);
+        const checked = [...group].filter(input => input.checked);
+        if ((box.name === "time_consuming_activities[]" || box.name === "deserves_more_attention[]") && checked.length > 3) {
+          box.checked = false;
+          alert("Please select up to three options.");
+        }
+      });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (!validateCurrentQuestion()) return;
+      current++;
+      showQuestion(current);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      current--;
+      showQuestion(current);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!validateCurrentQuestion()) return;
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+          form.style.display = "none";
+          thankyou.style.display = "block";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      } catch (error) {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>
