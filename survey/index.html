@@ -1,10 +1,10 @@
-<!-- survey/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Real Estate Industry Benchmark Survey | Collie</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -12,109 +12,158 @@
   <style>
     :root {
       --navy: #071827;
-      --navy-soft: #0d2538;
-      --card: #ffffff;
-      --text: #102033;
-      --muted: #667085;
+      --text: #111827;
+      --muted: #4b5563;
       --line: #e5e7eb;
-      --accent: #a7d8ff;
+      --card: #ffffff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: radial-gradient(circle at top left, #123653 0%, var(--navy) 42%, #03101b 100%);
-      color: white;
+      background:
+        radial-gradient(circle at top left, rgba(42, 88, 123, 0.95), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(24, 54, 82, 0.9), transparent 38%),
+        linear-gradient(135deg, #061421 0%, #0a1f33 45%, #020b12 100%);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    .wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 20px;
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 36px 20px 56px;
     }
 
-    .brand {
-      font-weight: 800;
-      font-size: 24px;
-      margin-bottom: 42px;
+    .logo-wrap {
+      max-width: 920px;
+      margin: 0 auto 24px;
     }
 
-    .intro h1 {
-      font-size: clamp(32px, 6vw, 56px);
-      line-height: 1.02;
-      margin: 0 0 20px;
-      letter-spacing: -0.04em;
-    }
-
-    .intro p {
-      color: rgba(255,255,255,.78);
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 0 0 14px;
-    }
-
-    .card {
-      background: var(--card);
-      color: var(--text);
-      border-radius: 24px;
-      padding: 28px;
-      margin-top: 32px;
-      box-shadow: 0 24px 80px rgba(0,0,0,.25);
-    }
-
-    .progress {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    .question {
-      display: none;
-    }
-
-    .question.active {
+    .logo {
+      height: 38px;
+      width: auto;
       display: block;
     }
 
-    h2 {
+    .brand-text {
+      color: white;
       font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .card {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 26px;
+      padding: 38px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .intro p {
+      margin: 8px 0;
+    }
+
+    .meta {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #edf2f7;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 22px 0 30px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--navy);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .question {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .question:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .question-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
       line-height: 1.25;
-      margin: 0 0 22px;
+      font-weight: 800;
+      color: var(--text);
       letter-spacing: -0.02em;
     }
 
     .hint {
+      margin: -6px 0 14px;
+      font-size: 13px;
+      line-height: 1.25;
       color: var(--muted);
-      font-size: 14px;
-      margin-top: -10px;
-      margin-bottom: 20px;
     }
 
-    label.option {
+    .option {
       display: block;
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
+      padding: 12px 14px;
+      margin-bottom: 9px;
       cursor: pointer;
-      font-size: 15px;
-      line-height: 1.35;
+      font-size: 14px;
+      line-height: 1.25;
+      color: var(--text);
+      background: white;
     }
 
-    label.option:hover {
-      border-color: #9bbbd4;
-      background: #f8fbfd;
+    .option:hover {
+      border-color: #9ca3af;
+      background: #f9fafb;
     }
 
     input[type="radio"],
     input[type="checkbox"] {
-      margin-right: 10px;
+      margin-right: 9px;
       transform: translateY(1px);
     }
 
@@ -123,96 +172,133 @@
       width: 100%;
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 14px 16px;
+      padding: 13px 14px;
       font: inherit;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.3;
+      color: var(--text);
       outline: none;
     }
 
     textarea {
-      min-height: 130px;
+      min-height: 110px;
       resize: vertical;
     }
 
-    .buttons {
+    .contact-section {
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 20px;
+      background: #f9fafb;
+      border: 1px solid var(--line);
+    }
+
+    .contact-section h2 {
+      margin-bottom: 8px;
+    }
+
+    .small-note {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+      margin: 8px 0 16px;
+    }
+
+    .submit-row {
+      margin-top: 26px;
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 28px;
+      justify-content: flex-end;
     }
 
     button {
       border: 0;
       border-radius: 999px;
-      padding: 13px 22px;
-      font-weight: 800;
-      font-family: Inter, sans-serif;
-      cursor: pointer;
-    }
-
-    .secondary {
-      background: #eef2f6;
-      color: var(--text);
-    }
-
-    .primary {
+      padding: 14px 24px;
       background: var(--navy);
       color: white;
-      margin-left: auto;
-    }
-
-    .primary:hover {
-      background: var(--navy-soft);
-    }
-
-    .contact-note {
-      color: var(--muted);
+      font-family: Inter, sans-serif;
+      font-weight: 800;
+      cursor: pointer;
       font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 18px;
+    }
+
+    button:hover {
+      background: #0d2538;
     }
 
     .thankyou {
       display: none;
       text-align: center;
+      padding: 40px 20px;
     }
 
     .thankyou h2 {
-      font-size: 32px;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
 
-    @media (max-width: 600px) {
-      .wrap { padding: 32px 16px; }
-      .card { padding: 22px; border-radius: 20px; }
-      .buttons { flex-direction: column; }
-      button { width: 100%; }
-      .primary { margin-left: 0; }
+    @media (max-width: 640px) {
+      .page {
+        padding: 24px 14px 40px;
+      }
+
+      .card {
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+
+      .logo-wrap {
+        margin-bottom: 18px;
+      }
+
+      .question {
+        padding: 22px 0;
+      }
+
+      .contact-section {
+        padding: 18px;
+      }
+
+      .submit-row {
+        display: block;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <div class="brand">Collie</div>
-
-    <section class="intro">
-      <h1>Real Estate Industry Benchmark Survey</h1>
-      <p>
-        This survey is part of an effort to establish a baseline understanding of how commercial real estate professionals currently spend their time and where they believe they create the most value.
-      </p>
-      <p>
-        The survey consists of 5 questions and should take approximately 3 minutes to complete. Findings will be summarized and shared with participants upon completion of the study.
-      </p>
-      <p>
-        Survey responses will be reviewed in aggregate. Email addresses are collected separately only for coffee gift card delivery and follow-up permission.
-      </p>
-    </section>
+  <main class="page">
+    <div class="logo-wrap">
+      <div class="brand-text">Collie</div>
+      <!-- If you have a logo file, replace above with:
+      <img src="/logo.png" alt="Collie" class="logo">
+      -->
+    </div>
 
     <section class="card">
       <form id="surveyForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+        <h1>Real Estate Industry Benchmark Survey</h1>
 
-        <div class="question active">
-          <div class="progress">Question 1 of 5</div>
+        <div class="intro">
+          <p>
+            This survey is part of an effort to establish a baseline understanding of how commercial real estate professionals currently spend their time and where they believe they create the most value.
+          </p>
+          <p class="meta">5 questions · Approximately 3 minutes</p>
+          <p>
+            Findings will be summarized and shared with participants upon completion of the study.
+          </p>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="question">
+          <div class="question-label">Question 1 of 5</div>
           <h2>Which statement best describes the primary value you bring to your organization?</h2>
 
           <label class="option"><input type="radio" name="primary_value" value="Producing analysis and supporting decision-making" required>Producing analysis and supporting decision-making</label>
@@ -223,7 +309,7 @@
         </div>
 
         <div class="question">
-          <div class="progress">Question 2 of 5</div>
+          <div class="question-label">Question 2 of 5</div>
           <h2>What activities consume the largest portion of your time?</h2>
           <div class="hint">Select up to three areas.</div>
 
@@ -239,7 +325,7 @@
         </div>
 
         <div class="question">
-          <div class="progress">Question 3 of 5</div>
+          <div class="question-label">Question 3 of 5</div>
           <h2>Which areas of your work do you believe deserve more of your attention?</h2>
           <div class="hint">Select up to three areas.</div>
 
@@ -255,7 +341,7 @@
         </div>
 
         <div class="question">
-          <div class="progress">Question 4 of 5</div>
+          <div class="question-label">Question 4 of 5</div>
           <h2>Do you feel your current tools meaningfully reduce workload and improve decision-making?</h2>
 
           <label class="option"><input type="radio" name="tool_effectiveness" value="Yes, significantly" required>Yes, significantly</label>
@@ -266,40 +352,37 @@
         </div>
 
         <div class="question">
-          <div class="progress">Question 5 of 5</div>
+          <div class="question-label">Question 5 of 5</div>
           <h2>If you could improve one aspect of your current workflow, what would it be?</h2>
           <textarea name="workflow_improvement" placeholder="Share a brief thought..." required></textarea>
         </div>
 
-        <div class="question">
-          <div class="progress">Final step</div>
+        <div class="contact-section">
           <h2>Please share your email to receive a coffee gift card.</h2>
-          <p class="contact-note">
+          <p class="small-note">
             This is also where I’ll send the summarized findings once the study is complete.
           </p>
 
           <input type="email" name="email" placeholder="Email address" required />
 
-          <label class="option" style="margin-top:16px;">
+          <label class="option" style="margin-top: 14px;">
             <input type="checkbox" name="open_to_follow_up" value="Yes">
             I would be open to future follow-up conversations related to this research.
           </label>
 
-          <p class="contact-note">
-            Please press submit below to complete the survey.
+          <p class="small-note">
+            Survey responses will be reviewed in aggregate. Email addresses are collected for coffee gift card delivery, findings distribution, and follow-up permission.
           </p>
         </div>
 
-        <div class="buttons">
-          <button type="button" class="secondary" id="prevBtn" style="display:none;">Back</button>
-          <button type="button" class="primary" id="nextBtn">Next</button>
-          <button type="submit" class="primary" id="submitBtn" style="display:none;">Submit</button>
+        <div class="submit-row">
+          <button type="submit">Submit Survey</button>
         </div>
       </form>
 
       <div class="thankyou" id="thankyou">
         <h2>Thank you.</h2>
-        <p class="contact-note">
+        <p class="small-note">
           Your response has been submitted. I appreciate your time and perspective.
         </p>
       </div>
@@ -307,90 +390,97 @@
   </main>
 
   <script>
-    const questions = document.querySelectorAll(".question");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const submitBtn = document.getElementById("submitBtn");
     const form = document.getElementById("surveyForm");
     const thankyou = document.getElementById("thankyou");
+    const progressFill = document.getElementById("progressFill");
 
-    let current = 0;
+    const limitedCheckboxGroups = [
+      "time_consuming_activities[]",
+      "deserves_more_attention[]"
+    ];
 
-    function showQuestion(index) {
-      questions.forEach((q, i) => q.classList.toggle("active", i === index));
-      prevBtn.style.display = index === 0 ? "none" : "inline-block";
-      nextBtn.style.display = index === questions.length - 1 ? "none" : "inline-block";
-      submitBtn.style.display = index === questions.length - 1 ? "inline-block" : "none";
+    function updateProgress() {
+      let answered = 0;
+
+      if (document.querySelector('input[name="primary_value"]:checked')) answered++;
+
+      limitedCheckboxGroups.forEach(groupName => {
+        if (document.querySelectorAll(`input[name="${groupName}"]:checked`).length > 0) {
+          answered++;
+        }
+      });
+
+      if (document.querySelector('input[name="tool_effectiveness"]:checked')) answered++;
+
+      const improvement = document.querySelector('textarea[name="workflow_improvement"]');
+      if (improvement.value.trim().length > 0) answered++;
+
+      progressFill.style.width = `${(answered / 5) * 100}%`;
     }
 
-    function validateCurrentQuestion() {
-      const active = questions[current];
-      const requiredFields = active.querySelectorAll("[required]");
+    document.querySelectorAll("input, textarea").forEach(input => {
+      input.addEventListener("input", updateProgress);
+      input.addEventListener("change", updateProgress);
+    });
 
-      for (const field of requiredFields) {
-        if (field.type === "radio") {
-          const group = active.querySelectorAll(`input[name="${field.name}"]`);
-          if (![...group].some(input => input.checked)) {
-            alert("Please select an answer before continuing.");
-            return false;
-          }
-        } else if (!field.value.trim()) {
-          alert("Please complete this field before continuing.");
+    document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+      box.addEventListener("change", () => {
+        if (!limitedCheckboxGroups.includes(box.name)) return;
+
+        const group = document.querySelectorAll(`input[name="${box.name}"]`);
+        const checked = [...group].filter(input => input.checked);
+
+        if (checked.length > 3) {
+          box.checked = false;
+          alert("Please select up to three areas.");
+        }
+
+        updateProgress();
+      });
+    });
+
+    function validateForm() {
+      if (!document.querySelector('input[name="primary_value"]:checked')) {
+        alert("Please answer Question 1.");
+        return false;
+      }
+
+      for (const groupName of limitedCheckboxGroups) {
+        const checked = document.querySelectorAll(`input[name="${groupName}"]:checked`);
+        if (checked.length === 0) {
+          alert("Please select at least one area for Questions 2 and 3.");
+          return false;
+        }
+        if (checked.length > 3) {
+          alert("Please select up to three areas for Questions 2 and 3.");
           return false;
         }
       }
 
-      const checkboxGroups = [
-        "time_consuming_activities[]",
-        "deserves_more_attention[]"
-      ];
+      if (!document.querySelector('input[name="tool_effectiveness"]:checked')) {
+        alert("Please answer Question 4.");
+        return false;
+      }
 
-      for (const groupName of checkboxGroups) {
-        const boxes = active.querySelectorAll(`input[name="${groupName}"]`);
-        if (boxes.length > 0) {
-          const checked = [...boxes].filter(box => box.checked);
-          if (checked.length === 0) {
-            alert("Please select at least one option.");
-            return false;
-          }
-          if (checked.length > 3) {
-            alert("Please select up to three options.");
-            return false;
-          }
-        }
+      const improvement = document.querySelector('textarea[name="workflow_improvement"]');
+      if (!improvement.value.trim()) {
+        alert("Please answer Question 5.");
+        return false;
+      }
+
+      const email = document.querySelector('input[name="email"]');
+      if (!email.value.trim()) {
+        alert("Please enter your email address to receive the coffee gift card.");
+        return false;
       }
 
       return true;
     }
 
-    document.querySelectorAll('input[type="checkbox"]').forEach(box => {
-      box.addEventListener("change", () => {
-        const group = document.querySelectorAll(`input[name="${box.name}"]`);
-        const checked = [...group].filter(input => input.checked);
-        if ((box.name === "time_consuming_activities[]" || box.name === "deserves_more_attention[]") && checked.length > 3) {
-          box.checked = false;
-          alert("Please select up to three options.");
-        }
-      });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      if (!validateCurrentQuestion()) return;
-      current++;
-      showQuestion(current);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    prevBtn.addEventListener("click", () => {
-      current--;
-      showQuestion(current);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      if (!validateCurrentQuestion()) return;
+      if (!validateForm()) return;
 
       const data = new FormData(form);
 
@@ -404,6 +494,7 @@
         if (response.ok) {
           form.style.display = "none";
           thankyou.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
           alert("Something went wrong. Please try again.");
         }
@@ -411,6 +502,8 @@
         alert("Something went wrong. Please try again.");
       }
     });
+
+    updateProgress();
   </script>
 </body>
 </html>
