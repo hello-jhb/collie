@@ -96,7 +96,7 @@
       padding: 28px 0 32px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      margin: 0 0 42px;
+      margin: 0 0 36px;
     }
 
     .progress-bar {
@@ -114,12 +114,8 @@
       transition: width 0.25s ease;
     }
 
-    .survey-content {
-      margin-top: 0;
-    }
-
     .question {
-      padding: 42px 0;
+      padding: 32px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -134,34 +130,34 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 14px;
-      line-height: 1.5;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
     h2 {
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       font-size: 22px;
-      line-height: 1.5;
+      line-height: 1.45;
       font-weight: 800;
       color: var(--text);
       letter-spacing: -0.025em;
     }
 
     .hint {
-      margin: -12px 0 22px;
+      margin: -10px 0 18px;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.5;
       color: var(--muted);
     }
 
     .option {
       display: block;
       border: 1px solid var(--line);
-      padding: 18px 18px;
-      margin-bottom: 14px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
       cursor: pointer;
-      font-size: 16px;
-      line-height: 1.65;
+      font-size: 15px;
+      line-height: 1.4;
       color: var(--text);
       background: white;
     }
@@ -195,25 +191,25 @@
     }
 
     .contact-section {
-      margin-top: 42px;
-      padding: 34px;
+      margin-top: 36px;
+      padding: 30px;
       background: #f9fafb;
       border: 1px solid var(--line);
     }
 
     .contact-section h2 {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .small-note {
       font-size: 15px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--muted);
-      margin: 10px 0 22px;
+      margin: 10px 0 20px;
     }
 
     .submit-row {
-      margin-top: 34px;
+      margin-top: 32px;
       display: flex;
       justify-content: flex-end;
     }
@@ -280,22 +276,23 @@
 
       .progress-sticky {
         padding: 20px 0 22px;
-        margin-bottom: 30px;
+        margin-bottom: 28px;
       }
 
       .question {
-        padding: 34px 0;
+        padding: 28px 0;
       }
 
       h2 {
         font-size: 20px;
-        line-height: 1.45;
+        line-height: 1.4;
       }
 
       .option {
         font-size: 15px;
-        line-height: 1.55;
-        padding: 16px;
+        line-height: 1.35;
+        padding: 10px 12px;
+        margin-bottom: 8px;
       }
 
       .contact-section {
@@ -344,88 +341,86 @@
           </div>
         </div>
 
-        <div class="survey-content">
-          <div class="question">
-            <div class="question-label">Question 1 of 5</div>
-            <h2>Which statement best describes the primary value you bring to your organization?</h2>
+        <div class="question">
+          <div class="question-label">Question 1 of 5</div>
+          <h2>Which statement best describes the primary value you bring to your organization?</h2>
 
-            <label class="option"><input type="radio" name="primary_value" value="Producing analysis and supporting decision-making" required>Producing analysis and supporting decision-making</label>
-            <label class="option"><input type="radio" name="primary_value" value="Managing specific workstreams or projects">Managing specific workstreams or projects</label>
-            <label class="option"><input type="radio" name="primary_value" value="Coordinating efforts across teams and stakeholders">Coordinating efforts across teams and stakeholders</label>
-            <label class="option"><input type="radio" name="primary_value" value="Synthesizing information across disciplines to support investment and operational decisions">Synthesizing information across disciplines to support investment and operational decisions</label>
-            <label class="option"><input type="radio" name="primary_value" value="Setting strategic direction and capital allocation priorities">Setting strategic direction and capital allocation priorities</label>
-          </div>
+          <label class="option"><input type="radio" name="primary_value" value="Producing analysis and supporting decision-making" required>Producing analysis and supporting decision-making</label>
+          <label class="option"><input type="radio" name="primary_value" value="Managing specific workstreams or projects">Managing specific workstreams or projects</label>
+          <label class="option"><input type="radio" name="primary_value" value="Coordinating efforts across teams and stakeholders">Coordinating efforts across teams and stakeholders</label>
+          <label class="option"><input type="radio" name="primary_value" value="Synthesizing information across disciplines to support investment and operational decisions">Synthesizing information across disciplines to support investment and operational decisions</label>
+          <label class="option"><input type="radio" name="primary_value" value="Setting strategic direction and capital allocation priorities">Setting strategic direction and capital allocation priorities</label>
+        </div>
 
-          <div class="question">
-            <div class="question-label">Question 2 of 5</div>
-            <h2>What activities consume the largest portion of your time?</h2>
-            <div class="hint">Select up to three areas.</div>
+        <div class="question">
+          <div class="question-label">Question 2 of 5</div>
+          <h2>What activities consume the largest portion of your time?</h2>
+          <div class="hint">Select up to three areas.</div>
 
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Strategy / business planning">Strategy / business planning</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Leasing">Leasing</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Coordination and communication">Coordination and communication</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Data collection and analysis">Data collection and analysis</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Operational performance">Operational performance</label>
-            <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Process improvement">Process improvement</label>
-          </div>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Strategy / business planning">Strategy / business planning</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Leasing">Leasing</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Coordination and communication">Coordination and communication</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Data collection and analysis">Data collection and analysis</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Operational performance">Operational performance</label>
+          <label class="option"><input type="checkbox" name="time_consuming_activities[]" value="Process improvement">Process improvement</label>
+        </div>
 
-          <div class="question">
-            <div class="question-label">Question 3 of 5</div>
-            <h2>Which areas of your work do you believe deserve more of your attention?</h2>
-            <div class="hint">Select up to three areas.</div>
+        <div class="question">
+          <div class="question-label">Question 3 of 5</div>
+          <h2>Which areas of your work do you believe deserve more of your attention?</h2>
+          <div class="hint">Select up to three areas.</div>
 
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Strategy / business planning">Strategy / business planning</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Leasing">Leasing</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Coordination and communication">Coordination and communication</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Data collection and analysis">Data collection and analysis</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Operational performance">Operational performance</label>
-            <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Process improvement">Process improvement</label>
-          </div>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Strategy / business planning">Strategy / business planning</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Leasing">Leasing</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Capital planning / CapEX">Capital planning / CapEX</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Coordination and communication">Coordination and communication</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Data collection and analysis">Data collection and analysis</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Financial analysis / underwriting">Financial analysis / underwriting</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Reporting and presentation preparation">Reporting and presentation preparation</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Operational performance">Operational performance</label>
+          <label class="option"><input type="checkbox" name="deserves_more_attention[]" value="Process improvement">Process improvement</label>
+        </div>
 
-          <div class="question">
-            <div class="question-label">Question 4 of 5</div>
-            <h2>Do you feel your current tools meaningfully reduce workload and improve decision-making?</h2>
+        <div class="question">
+          <div class="question-label">Question 4 of 5</div>
+          <h2>Do you feel your current tools meaningfully reduce workload and improve decision-making?</h2>
 
-            <label class="option"><input type="radio" name="tool_effectiveness" value="Yes, significantly" required>Yes, significantly</label>
-            <label class="option"><input type="radio" name="tool_effectiveness" value="Somewhat">Somewhat</label>
-            <label class="option"><input type="radio" name="tool_effectiveness" value="Not really">Not really</label>
-            <label class="option"><input type="radio" name="tool_effectiveness" value="They help individual tasks, but not the overall workflow">They help individual tasks, but not the overall workflow</label>
-            <label class="option"><input type="radio" name="tool_effectiveness" value="In some ways they create additional complexity">In some ways they create additional complexity</label>
-          </div>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Yes, significantly" required>Yes, significantly</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Somewhat">Somewhat</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="Not really">Not really</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="They help individual tasks, but not the overall workflow">They help individual tasks, but not the overall workflow</label>
+          <label class="option"><input type="radio" name="tool_effectiveness" value="In some ways they create additional complexity">In some ways they create additional complexity</label>
+        </div>
 
-          <div class="question">
-            <div class="question-label">Question 5 of 5</div>
-            <h2>If you could improve one aspect of your current workflow, what would it be?</h2>
-            <textarea name="workflow_improvement" placeholder="Share a brief thought..." required></textarea>
-          </div>
+        <div class="question">
+          <div class="question-label">Question 5 of 5</div>
+          <h2>If you could improve one aspect of your current workflow, what would it be?</h2>
+          <textarea name="workflow_improvement" placeholder="Share a brief thought..." required></textarea>
+        </div>
 
-          <div class="contact-section">
-            <h2>Please share your email to receive a coffee gift card.</h2>
-            <p class="small-note">
-              This is also where I’ll send the summarized findings once the study is complete.
-            </p>
+        <div class="contact-section">
+          <h2>Please share your email to receive a coffee gift card.</h2>
+          <p class="small-note">
+            This is also where I’ll send the summarized findings once the study is complete.
+          </p>
 
-            <input type="email" name="email" placeholder="Email address" required />
+          <input type="email" name="email" placeholder="Email address" required />
 
-            <label class="option" style="margin-top: 18px;">
-              <input type="checkbox" name="open_to_follow_up" value="Yes">
-              I would be open to future follow-up conversations related to this research.
-            </label>
+          <label class="option" style="margin-top: 18px;">
+            <input type="checkbox" name="open_to_follow_up" value="Yes">
+            I would be open to future follow-up conversations related to this research.
+          </label>
 
-            <p class="small-note">
-              Survey responses will be reviewed in aggregate. Email addresses are collected for coffee gift card delivery, findings distribution, and follow-up permission.
-            </p>
-          </div>
+          <p class="small-note">
+            Survey responses will be reviewed in aggregate. Email addresses are collected for coffee gift card delivery, findings distribution, and follow-up permission.
+          </p>
+        </div>
 
-          <div class="submit-row">
-            <button type="submit">Submit Survey</button>
-          </div>
+        <div class="submit-row">
+          <button type="submit">Submit Survey</button>
         </div>
       </form>
 
@@ -438,7 +433,7 @@
     </section>
 
     <footer class="footer">
-      © 2026 Collie Research. All rights reserved.
+      © 2026 Collie. All rights reserved.
     </footer>
   </main>
 
