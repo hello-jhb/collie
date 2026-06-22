@@ -513,10 +513,39 @@
     if(promptText)promptText.textContent=PROMPT_Q;
     switchToRefi();
   }
+  // ── Signup: posts to your Google Apps Script web app ──
+  // Paste your deployed Apps Script /exec URL between the quotes below.
+  // It must look like: https://script.google.com/macros/s/AKfy...../exec
+  // (NOT the Google Sheet URL.)
+  const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxuzMcktw5wejLg4wJ9jpUkVmlzF_-PUoU5V2hD6DhVrQknah51kCucra4AHGOV4Tuy/exec";
+
   const btn=document.getElementById('submitBtn'),email=document.getElementById('email'),msg=document.getElementById('msg');
-  btn.addEventListener('click',()=>{const v=(email.value||'').trim();const ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  btn.addEventListener('click',async()=>{
+    const v=(email.value||'').trim();
+    const ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
     if(!ok){msg.style.color='#A8503F';msg.textContent='Enter a valid email and we\u2019ll keep you posted.';return;}
-    msg.style.color='var(--field)';msg.textContent='Thanks \u2014 you\u2019re on the list.';email.value='';});
+
+    // If endpoint isn't set yet, acknowledge locally so the page still works
+    if(!SIGNUP_ENDPOINT || SIGNUP_ENDPOINT.indexOf('PASTE_')===0){
+      msg.style.color='var(--field)';msg.textContent='Thanks \u2014 you\u2019re on the list.';email.value='';return;
+    }
+
+    btn.disabled=true;const orig=btn.textContent;btn.textContent='Sending\u2026';
+    msg.style.color='var(--fg-soft)';msg.textContent='';
+    try{
+      await fetch(SIGNUP_ENDPOINT,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:'email='+encodeURIComponent(v)
+      });
+      msg.style.color='var(--field)';msg.textContent='Thanks \u2014 you\u2019re on the list.';email.value='';
+    }catch(err){
+      msg.style.color='#A8503F';msg.textContent='Something went wrong \u2014 please try again.';
+    }finally{
+      btn.disabled=false;btn.textContent=orig;
+    }
+  });
 </script>
 </body>
 </html>
