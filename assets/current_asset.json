@@ -1,0 +1,14 @@
+{
+  "asset_id": "current",
+  "identity": {
+    "name": null,
+    "property_type": null,
+    "location": null,
+    "sf_or_units": null
+  },
+  "layers": {},
+  "provenance": [],
+  "ingested_files": [],
+  "created_at": "2026-06-17T16:33:23.422786+00:00",
+  "updated_at": "2026-06-17T16:33:23.422976+00:00"
+}
